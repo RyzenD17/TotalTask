@@ -1,0 +1,64 @@
+﻿<Page x:Class="TotalTask.Forms.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TotalTask.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+    <ScrollViewer>
+        <Grid>
+        
+       
+            <StackPanel>
+                <ListView Name="LVServices" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="5" BorderThickness="1" BorderBrush="Gray" Background="{Binding DiscountColor}">
+
+                                <Grid Width="400" Height="150">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.Column="0" Width="80" Height="80" Name="ServiceImage" Source="{Binding Image}" Stretch="Uniform"></Image>
+
+                                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                                        <TextBlock TextWrapping="Wrap" FontSize="14" Text="{Binding Title}"></TextBlock>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Loaded="TextBlock_Loaded_3" Uid="{Binding ID}" TextDecorations="Strikethrough" ></TextBlock>
+                                            <TextBlock Loaded="TextBlock_Loaded_1" Uid="{Binding ID}" ></TextBlock>
+                                            <TextBlock Loaded="TextBlock_Loaded" Uid="{Binding ID}"></TextBlock>
+                                        </StackPanel>
+                                        <TextBlock Loaded="TextBlock_Loaded_2" Uid="{Binding ID}"></TextBlock>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <Button Width="80" Height="25" Name="NewApp" Click="NewApp_Click" Uid="{Binding ID}">Запись</Button>
+                                            <Button Margin="2" Width="120" Height="25" Click="Button_Click" Uid="{Binding ID}">Редактировать</Button>
+                                            <Button Margin="2" Width="80" Height="25" Click="Button_Click_1" Uid="{Binding ID}">Удалить</Button>
+                                        </StackPanel>
+                                    </StackPanel>
+
+
+                                </Grid>
+
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackPanel>
+                    <Button Name="btnAdd" Click="btnAdd_Click">Добавить запись</Button>
+                    <Button Name="btnShowEntries" Click="btnShowEntries_Click">Просмотр ближайших записей</Button>
+                </StackPanel>
+            </StackPanel>
+            
+       
+    </Grid>
+    </ScrollViewer>
+</Page>

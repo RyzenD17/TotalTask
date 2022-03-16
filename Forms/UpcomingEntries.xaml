@@ -1,0 +1,40 @@
+﻿<Page x:Class="TotalTask.Forms.UpcomingEntries"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TotalTask.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UpcomingEntries">
+    <ScrollViewer>
+        <Grid>
+        <StackPanel>
+            <ListView Name="LVClientService" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="5" BorderThickness="1" BorderBrush="Gray">
+                            <Grid Width="400" Height="150">
+                                <StackPanel>
+                                    <TextBlock Name="TBService" Loaded="TBService_Loaded" Uid="{Binding ServiceID}" TextWrapping="Wrap"></TextBlock>
+                                    <TextBlock Name="TBClient" Loaded="TBClient_Loaded" Uid="{Binding ClientID}"></TextBlock>
+                                    <TextBlock Name="TBEmail" Loaded="TBEmail_Loaded" Uid="{Binding ClientID}"></TextBlock>
+                                    <TextBlock Name="TBPhone" Loaded="TBPhone_Loaded" Uid="{Binding ClientID}"></TextBlock>
+                                    <TextBlock Name="TBDateTime" Text="{Binding StartTime}"></TextBlock>
+                                    <TextBlock Name="TBTimeLeft" Loaded="TBTimeLeft_Loaded" Uid="{Binding ID}" ></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Click="Button_Click">Назад</Button>
+        </StackPanel>
+    </Grid>
+        </ScrollViewer>
+</Page>
